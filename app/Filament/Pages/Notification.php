@@ -14,6 +14,7 @@ use Filament\Forms\Form;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Notification as NotificationFacade;
+use Filament\Notifications\Notification as FilamentNotification;
 
 class Notification extends Page implements HasForms
 {
@@ -68,6 +69,10 @@ class Notification extends Page implements HasForms
 
         NotificationFacade::send($guests, new PushNotification($title, $message, $buttonName, $buttonURL));
 
-        $this->notify('success', 'Notification Sent successfully!');
+        FilamentNotification::make()
+        ->title('Success')
+        ->body('Notification sent successfully!')
+        ->success()
+        ->send();
     }
 }
