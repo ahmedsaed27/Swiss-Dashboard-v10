@@ -26,7 +26,7 @@ class AdminPanelProvider extends PanelProvider
         return $panel
             ->default()
             ->id('admin')
-            ->path('admin')
+            ->path('/')
             ->authGuard('admin')
             ->login()
             ->passwordReset()
@@ -37,6 +37,7 @@ class AdminPanelProvider extends PanelProvider
                 'primary' => Color::hex('#FE3543') // red
                 // 'primary' => Color::Amber, // orange
             ])
+            ->sidebarCollapsibleOnDesktop()
             ->plugins([
                 BreezyCore::make()
                     ->myProfile(
