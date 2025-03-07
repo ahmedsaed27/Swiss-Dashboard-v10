@@ -21,7 +21,7 @@ class ListBasics extends ListRecords
     protected function getHeaderActions(): array
     {
         return Basic::count() === 0
-            ? [static::makeCreateAction()]
+            ? [Actions\CreateAction::make()]
             : []; // Hide create button if a record exists
     }
 }
